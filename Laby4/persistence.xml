@@ -1,0 +1,50 @@
+<persistence version="2.0"  xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="myPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>org.example.Mage</class>
+        <class>org.example.Tower</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>
+
+            <property name="javax.persistence.jdbc.user" value="admin"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="false" />
+        </properties>
+    </persistence-unit>
+</persistence>
+
+<!--
+<persistence version="2.0"  xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="myPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        &lt;!&ndash; dostawca JPA - tutaj Hibernate &ndash;&gt;
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        &lt;!&ndash; tutaj rejestrujesz klasy encyjne &ndash;&gt;
+        <class>org.example.Mage</class>
+        <class>org.example.Tower</class>
+        <properties>
+            &lt;!&ndash; sterownik i url do H2 &ndash;&gt;
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>
+            &lt;!&ndash; domyślnie ustawione login i hasło w H2 &ndash;&gt;
+            <property name="javax.persistence.jdbc.user" value="admin"/>
+            <property name="javax.persistence.jdbc.password" value="admin"/>
+            &lt;!&ndash; dialekt języka zapytań &ndash;&gt;
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            &lt;!&ndash; zarządza tworzniem schematu dla bazy - wyjaśnione w linku poniżej &ndash;&gt;
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            &lt;!&ndash; czy kod SQL zapytań robionych przez Hibernate ma się wyświetlać w konsoli &ndash;&gt;
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>
+-->
